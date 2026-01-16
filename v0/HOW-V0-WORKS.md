@@ -389,15 +389,21 @@ export default function LoginForm() {
 - User can interact with the form immediately
 
 ### 5. Editing (User says: "Make the button green")
+
+v0 uses `<QuickEdit />` to make targeted changes:
+
 ```mdx
 <QuickEdit>
 ```tsx file="app/page.tsx"
-// v0 only changes the specific line:
-- <Button type="submit" className="w-full">
-+ <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
+// Only the button styling changes (conceptual diff shown):
+<Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
+  Sign in
+</Button>
 ```
 </QuickEdit>
 ```
+
+The QuickEdit component intelligently identifies what needs to change and updates only that specific part of the code, preserving everything else.
 
 ## Key Insights
 
